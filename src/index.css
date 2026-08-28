@@ -38,6 +38,12 @@
   color: #0f172a !important;
 }
 
+/* Override Immersive Translate dark mode when our light theme is active */
+[data-immersive-translate-page-theme='dark'] [data-theme='light'] {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
 [data-theme='light'] .bg-black,
 [data-theme='light'] .bg-zinc-950,
 [data-theme='light'] .bg-zinc-950\/80,

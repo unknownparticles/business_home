@@ -25,9 +25,33 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   }, [theme]);
 
   useEffect(() => {
-    if (typeof document !== 'undefined') {
-      document.body.setAttribute('data-theme', theme);
+    if (typeof document === 'undefined') return;
+    document.body.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+
+    let styleEl: HTMLStyleElement | null = null;
+    if (theme === 'light') {
+      styleEl = document.createElement('style');
+      styleEl.setAttribute('data-theme-override', 'light');
+      styleEl.textContent = `
+        html[data-immersive-translate-page-theme='dark'][data-theme='light'],
+        html[data-immersive-translate-page-theme='dark'][data-theme='light'] body,
+        html[data-immersive-translate-page-theme='dark'][data-theme='light'] div#root {
+          background-color: #ffffff !important;
+          color: #0f172a !important;
+        }
+      `;
+      document.head.appendChild(styleEl);
+    } else {
+      const existing = document.querySelector('style[data-theme-override="light"]');
+      if (existing) existing.remove();
     }
+
+    return () => {
+      if (styleEl && styleEl.parentNode) {
+        styleEl.parentNode.removeChild(styleEl);
+      }
+    };
   }, [theme]);
 
   const toggleTheme = () => {

@@ -11,13 +11,17 @@
           var theme = localStorage.getItem('theme');
           if (theme === 'light' || theme === 'dark') {
             document.body.setAttribute('data-theme', theme);
+            document.documentElement.setAttribute('data-theme', theme);
           } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
             document.body.setAttribute('data-theme', 'light');
+            document.documentElement.setAttribute('data-theme', 'light');
           } else {
             document.body.setAttribute('data-theme', 'dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
           }
         } catch (e) {
           document.body.setAttribute('data-theme', 'dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
         }
       })();
     </script>
