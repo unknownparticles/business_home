@@ -58,7 +58,11 @@ export const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <button
                 onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-cyan-400 text-black font-semibold text-sm hover:bg-cyan-300 transition-all shadow-[0_0_25px_rgba(6,182,212,0.3)] cursor-pointer hover:shadow-[0_0_40px_rgba(6,182,212,0.5)]"
+                className={`inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm transition-all shadow-[0_0_25px_rgba(6,182,212,0.3)] cursor-pointer hover:shadow-[0_0_40px_rgba(6,182,212,0.5)] ${
+                  isLight
+                    ? 'bg-cyan-600 text-white hover:bg-cyan-500'
+                    : 'bg-cyan-400 text-black hover:bg-cyan-300'
+                }`}
               >
                 <span>{t.hero.cta}</span>
                 <ArrowRight className="w-4 h-4" />

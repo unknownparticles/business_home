@@ -97,14 +97,18 @@ export const GrowthLoop: React.FC = () => {
                   onMouseLeave={() => setActiveNode(null)}
                   className={`p-4 rounded-lg border transition-all cursor-pointer ${
                     activeNode === actualIdx
-                      ? 'bg-cyan-950/40 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]'
+                      ? isLight
+                        ? 'bg-cyan-50 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]'
+                        : 'bg-cyan-950/40 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]'
+                      : isLight
+                      ? 'bg-zinc-100 border-zinc-200 hover:border-zinc-300'
                       : 'bg-zinc-900/60 border-zinc-800 hover:border-zinc-700'
                   }`}
                 >
-                  <div className="font-mono text-[11px] text-cyan-400 font-semibold">{step.num}</div>
-                  <div className="font-bold text-sm text-zinc-100 mt-1">{step.title}</div>
-                  <div className="text-[10px] font-mono text-zinc-500">{step.en}</div>
-                  <p className="text-[11px] text-zinc-400 mt-2 line-clamp-2">{step.desc}</p>
+                  <div className={`font-mono text-[11px] font-semibold ${isLight ? 'text-cyan-600' : 'text-cyan-400'}`}>{step.num}</div>
+                  <div className={`font-bold text-sm mt-1 ${isLight ? 'text-zinc-900' : 'text-zinc-100'}`}>{step.title}</div>
+                  <div className={`text-[10px] font-mono ${isLight ? 'text-zinc-500' : 'text-zinc-500'}`}>{step.en}</div>
+                  <p className={`text-[11px] mt-2 line-clamp-2 ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>{step.desc}</p>
                 </div>
               );
             })}

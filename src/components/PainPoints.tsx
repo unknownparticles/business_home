@@ -31,7 +31,7 @@ export const PainPoints: React.FC = () => {
           {PAIN_POINTS.map((item, idx) => (
             <GlowCard key={item.key} className={`p-6 glow-card-hover transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: `${idx * 100}ms` }}>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-cyan-400">
+                <span className={`text-xs font-mono px-2 py-0.5 rounded border ${isLight ? 'bg-zinc-100 border-zinc-200 text-cyan-600' : 'bg-zinc-900 border border-zinc-800 text-cyan-400'}`}>
                   {item.key}
                 </span>
                 <span className="text-[11px] font-mono text-zinc-500 tracking-wider">
@@ -46,7 +46,7 @@ export const PainPoints: React.FC = () => {
 
         <div className={`mt-12 p-6 rounded-xl border flex flex-col md:flex-row items-center justify-between gap-4 ${isLight ? 'bg-zinc-100 border-zinc-200' : 'bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-zinc-800/80'}`}>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-cyan-950 border border-cyan-500/30 text-cyan-400">
+            <div className={`p-2.5 rounded-lg border text-cyan-400 ${isLight ? 'bg-cyan-50 border-cyan-200' : 'bg-cyan-950 border-cyan-500/30'}`}>
               <Unplug className="w-5 h-5" />
             </div>
             <div>
