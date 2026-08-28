@@ -76,9 +76,6 @@ export const Navbar: React.FC = () => {
             <Languages className="w-3.5 h-3.5" />
             {locale === 'zh' ? 'EN' : '中文'}
           </button>
-          <button className="hidden sm:inline-flex text-xs font-mono text-zinc-300 hover:text-white px-3.5 py-2 transition-colors">
-            {t.nav.login}
-          </button>
           <button
             onClick={() => scrollTo('cta')}
             className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-4 py-2 rounded-lg bg-zinc-100 text-black hover:bg-cyan-400 hover:text-black transition-all duration-200 shadow-md"
