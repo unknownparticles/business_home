@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../i18n';
-import { ArrowUpRight, Languages } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, Languages } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { t, locale, setLocale } = useTranslation();
@@ -60,6 +60,15 @@ export const Navbar: React.FC = () => {
         </nav>
 
         <div className="flex items-center space-x-3">
+          <a
+            href="https://business_workspace.alunapi.top"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white px-3 py-2 transition-colors"
+          >
+            <span>前往工作台</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
           <button
             onClick={toggleLang}
             className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white px-3 py-2 transition-colors"
