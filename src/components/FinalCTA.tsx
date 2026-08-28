@@ -86,7 +86,7 @@ export const FinalCTA: React.FC = () => {
                 type="submit"
                 className={`w-full py-4 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(6,182,212,0.3)] cursor-pointer hover:shadow-[0_0_50px_rgba(6,182,212,0.5)] ${
                   isLight
-                    ? 'bg-cyan-600 text-white hover:bg-cyan-500'
+                    ? 'bg-cyan-500 text-white hover:bg-cyan-400'
                     : 'bg-cyan-400 text-black hover:bg-cyan-300'
                 }`}
               >

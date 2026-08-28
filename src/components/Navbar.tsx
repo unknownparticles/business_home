@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
             onClick={() => scrollTo('cta')}
             className={`inline-flex items-center gap-1.5 text-xs font-mono font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-md ${
               isLight
-                ? 'bg-cyan-600 text-white hover:bg-cyan-500'
+                ? 'bg-cyan-500 text-white hover:bg-cyan-400'
                 : 'bg-cyan-400 text-black hover:bg-cyan-300'
             }`}
           >
