@@ -1,0 +1,170 @@
+{
+  "nav": {
+    "brand": "NEXUS GLOBAL",
+    "subBrand": "GROWTH OS",
+    "loop": "Business Loop",
+    "capabilities": "Capabilities",
+    "marketIntel": "Market Intel",
+    "agent": "Autonomous Agent",
+    "results": "Results",
+    "login": "Console Login",
+    "cta": "Get Growth Plan"
+  },
+  "hero": {
+    "badge": "AI POWERED GLOBAL BUSINESS",
+    "title": "Let AI run your entire overseas business.",
+    "titleHighlight": "Continuously drive your global business growth.",
+    "desc": "From lead generation, audience qualification, social media operations, to global market intelligence, customer success, and order risk tracking. One closed-loop system continuously driving your global business growth.",
+    "cta": "Get Free Growth Plan",
+    "ctaSecondary": "See How It Works",
+    "features": {
+      "f1": "Not a single-point Chat tool",
+      "f2": "Full-chain automated execution",
+      "f3": "Real foreign trade business driven"
+    },
+    "terminal": {
+      "title": "GLOBAL GROWTH OS // COMMAND CENTER",
+      "live": "SYSTEM LIVE",
+      "newLeads": "NEW LEADS",
+      "qualified": "QUALIFIED",
+      "pipeline": "PIPELINE VALUE",
+      "agentActive": "AUTONOMOUS AGENT ACTIVE",
+      "nonStop": "24/7 NON-STOP",
+      "executing": "AI OS is continuously executing overseas operations..."
+    }
+  },
+  "painPoints": {
+    "title": "Your overseas business is not lacking opportunities.",
+    "desc": "It's that opportunities are scattered across lead spreadsheets, social media backends, email records, and freight forwarder chats. No system truly connects and continuously operates them.",
+    "disconnected": "DISCONNECTED",
+    "loss": "Fragmentation causes huge losses",
+    "lossDesc": "Sales targeting wrong people, follow-up gaps, policy失控, customer流失.",
+    "connect": "We put these scattered key processes into one autonomous system →"
+  },
+  "loop": {
+    "title": "This is not six tools, this is a complete growth loop.",
+    "desc": "Every trade outreach, every sample feedback, every bill of lading data is automatically converted into fuel for the next precise lead generation and decision-making.",
+    "engine": "AI GLOBAL GROWTH ENGINE • CONTINUOUS LOOP",
+    "pipeline": "DATA FLOW & AUTOMATION PIPELINE",
+    "steps": {
+      "s1": "Market Intel", "d1": "Monitor tariffs, policies and industry procurement hotspots",
+      "s2": "Target Audience", "d2": "Lock precise personas and key country tracks",
+      "s3": "Lead Generation", "d3": "Multi-source scan customs data and corporate decision makers",
+      "s4": "Qualification", "d4": "AI Intent Scoring eliminates inefficient leads",
+      "s5": "AI Outreach", "d5": "Localized high-intent contextual emails and social interactions",
+      "s6": "Conversation", "d6": "Real-time multilingual business conversations and intent analysis",
+      "s7": "Opportunity", "d7": "Technical parameter verification and key pain point resolution",
+      "s8": "Quotation / Sample", "d8": "Intelligent cost calculation and sample delivery tracking",
+      "s9": "Order & Delivery", "d9": "Production scheduling, port logistics and risk early warning",
+      "s10": "Customer Success", "d10": "Unboxing satisfaction, replenishment cycle intelligent monitoring",
+      "s11": "Repeat Purchase", "d11": "Feed back market data to form a long-term growth engine"
+    }
+  },
+  "capabilities": {
+    "title": "One system covers your entire overseas business.",
+    "desc": "Not six independent island tools, but a deeply collaborative, data-interconnected enterprise overseas business growth system.",
+    "01": {
+      "label": "01 / Precision Lead Engine",
+      "title": "Continuously find high-intent customers who may actually buy from you.",
+      "desc": "Not just mechanically scraping contact info in the open ocean, but deeply scanning global customs import/export data, corporate financial reports, social media recruitment trends, and technology updates to precisely capture real buyers currently seeking suppliers.",
+      "feat1": "Procurement Signal Monitoring",
+      "feat2": "Decision Maker Direct Access"
+    },
+    "02": {
+      "label": "02 / Intelligent Audience Scoring",
+      "title": "Not finding more customers, but finding customers worth following up with.",
+      "desc": "AI comprehensively calculates Lead Score based on enterprise scale, product match, historical purchase frequency, decision chain authority, and cash flow health. Let the sales team focus 100% of their energy on the top 20% of high-value transactions."
+    },
+    "03": {
+      "label": "03 / Global Social Media Matrix Operations",
+      "title": "Keep your brand consistently in front of your target customers.",
+      "desc": "Say goodbye to mechanically cheap AI filler content. The system combines local industrial hotspots and industry trends, automatically adapting to LinkedIn, X, YouTube, and Meta communication norms to form continuous brand assets with professional technical persuasion."
+    },
+    "04": {
+      "label": "04 / Customer Lifecycle Maintenance",
+      "title": "Closing the deal is not the end, but the beginning of the customer lifecycle.",
+      "desc": "Real-time monitoring of old customer procurement cycles, unboxing feedback, and seasonal replenishment patterns. When customer purchase frequency drops abnormally or churn signs appear, automatically dispatch customized follow-up strategies to account managers."
+    },
+    "05": {
+      "label": "05 / International Situation & Global Market Intelligence",
+      "title": "What's happening in the world, AI tells you its direct relationship to business.",
+      "desc": "Not just scraping general news. The system monitors tariffs, exchange rates, geopolitical policies, raw material commodity prices, and shipping capacity indices 24/7. The core is: telling you what to do.",
+      "monitor": "Monitoring scope: International trade policy • Tariff changes • Exchange rate fluctuations • Shipping container indices • Supply chain changes"
+    },
+    "06": {
+      "label": "06 / Full-process Fulfillment & Risk Early Warning",
+      "title": "From the first inquiry, track all the way to safe order delivery.",
+      "desc": "Connect factory production scheduling, port logistics waybills, and foreign exchange settlement. Automatically identify production delays, payment credit anomalies, and customs clearance bottlenecks to prevent delivery defaults and exchange rate collection losses."
+    }
+  },
+  "agent": {
+    "title": "You are responsible for business decisions. AI is responsible for 24/7 execution.",
+    "desc": "This is not a chat box where you repeatedly input prompts. AI Agents, based on preset global growth strategies, autonomously search, screen, communicate, and schedule. Business personnel only need to confirm at key nodes.",
+    "benefit1": "No training: No need to learn complex model instructions and tool chains",
+    "benefit2": "No stagnation:跨越时区限制，海外买家即时响应",
+    "terminal": "AI_GROWTH_AGENT // REALTIME_EXEC_LOGS",
+    "logging": "LOGGING ACTIVE"
+  },
+  "comparison": {
+    "title": "Why is this not just another SaaS?",
+    "desc": "We are not selling you complex software tools, we are helping you reshape how your overseas business operates.",
+    "01": {
+      "title": "From tools to results",
+      "traditional": "Traditional SaaS: Sells you accounts and feature lists, letting you recruit your own team to operate.",
+      "nexus": "We: Directly run your entire overseas customer acquisition and opportunity advancement process for you, delivering deterministic results."
+    },
+    "02": {
+      "title": "From leads to orders",
+      "traditional": "Traditional lead generation: Scrapes a bunch of public emails, and the business chain ends after lead export.",
+      "nexus": "We: Lead acquisition → Screening → Outreach → Opportunity → Sample → Order → Repeat purchase full-chain penetration."
+    },
+    "03": {
+      "title": "From information to decisions",
+      "traditional": "Traditional information: Pushes massive industry general news, but cannot quantify the specific impact on your own business.",
+      "nexus": "We: Not only monitor events, but directly calculate the impact on your tariffs, costs, and profits and provide action recommendations."
+    },
+    "04": {
+      "title": "From orders to assets",
+      "traditional": "Traditional model: Employee resignation leads to loss of chat records and customer leads, starting over each time.",
+      "nexus": "We: Precipitate the enterprise's full business data brain. Every transaction continues to empower the next growth."
+    }
+  },
+  "results": {
+    "title": "What you ultimately get is a predictable global business growth.",
+    "badge": "DEMO DATA • 60-day operation sample of a medium-sized industrial lighting manufacturing enterprise",
+    "labels": {
+      "leads": "New Leads",
+      "qualified": "Qualified Rate",
+      "opportunities": "Opportunities",
+      "quotations": "Quotations",
+      "orders": "Confirmed Orders",
+      "pipeline": "Active Pipeline"
+    },
+    "descs": {
+      "leads": "Monthly new valid buyers",
+      "qualified": "High-intent decision maker rating",
+      "opportunities": "Deep opportunities and sample delivery",
+      "quotations": "Entering formal business negotiation",
+      "orders": "First bulk order fulfillment",
+      "pipeline": "Continuously operating opportunity value"
+    }
+  },
+  "cta": {
+    "badge": "START YOUR GLOBAL ACCELERATION",
+    "title": "Let your overseas business start running itself.",
+    "desc": "Tell us what you sell, who you sell to, and which target market you want to enter. The system will generate your first global business growth and market entry plan within 60 seconds.",
+    "placeholder1": "Main products (e.g.: Commercial energy storage batteries)",
+    "placeholder2": "Target market (e.g.: Southeast Asia / Europe)",
+    "submit": "Get My Exclusive Global Growth Plan",
+    "success": "Growth plan generated and backend initialization completed",
+    "consultant": "Your dedicated consultant will establish a secure encrypted connection with you within 2 hours.",
+    "features": {
+      "f1": "No complex deployment",
+      "f2": "No need to learn complicated tools",
+      "f3": "Start operating from your first core business line"
+    }
+  },
+  "footer": {
+    "tagline": "AI + DATA + AUTOMATION = ENTERPRISE GLOBAL EXPANSION"
+  }
+}
