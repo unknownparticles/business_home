@@ -67,7 +67,7 @@ export const LeadGeneration: React.FC = () => {
                   <span className={isLight ? 'text-zinc-400' : 'text-zinc-600'}>→</span>
                   <span className={`px-2 py-1 rounded ${isLight ? 'bg-zinc-100 text-zinc-700 border border-zinc-200' : 'bg-zinc-900 text-zinc-300'}`}>关务进出口匹配</span>
                   <span className={isLight ? 'text-zinc-400' : 'text-zinc-600'}>→</span>
-                  <span className="px-2 py-1 bg-cyan-950 text-cyan-300 border border-cyan-500/40 rounded font-semibold">精准触达</span>
+                  <span className={`px-2 py-1 rounded border font-semibold ${isLight ? 'bg-cyan-50 text-cyan-700 border-cyan-200' : 'bg-cyan-950 text-cyan-300 border-cyan-500/40'}`}>精准触达</span>
                 </div>
               </div>
             </TerminalWindow>

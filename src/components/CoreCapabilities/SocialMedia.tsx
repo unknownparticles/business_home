@@ -52,7 +52,7 @@ export const SocialMedia: React.FC = () => {
                     Channels: LinkedIn Corporate + X Tech Thread • Target: DACH Region Buyers
                   </div>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/30 whitespace-nowrap">
+                <span className={`text-[10px] font-mono px-2 py-0.5 rounded border whitespace-nowrap ${isLight ? 'bg-cyan-50 text-cyan-700 border-cyan-200' : 'bg-cyan-950 text-cyan-300 border-cyan-500/30'}`}>
                   Scheduled 14:00 CET
                 </span>
               </div>
@@ -66,7 +66,7 @@ export const SocialMedia: React.FC = () => {
                     Channels: YouTube Shorts + Meta B2B • Target: North America Importers
                   </div>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 whitespace-nowrap">
+                <span className={`text-[10px] font-mono px-2 py-0.5 rounded border whitespace-nowrap ${isLight ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-emerald-950 text-emerald-400 border-emerald-500/30'}`}>
                   Engaged: 14 RFQs
                 </span>
               </div>
