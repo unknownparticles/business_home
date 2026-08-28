@@ -61,7 +61,7 @@ export const Navbar: React.FC = () => {
 
         <div className="flex items-center space-x-3">
           <a
-            href="https://business-workspace.alunapi.top"
+            href="https://business-workspace.pages.dev"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white px-3 py-2 transition-colors"
