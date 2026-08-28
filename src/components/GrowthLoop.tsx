@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../i18n';
+import { useTheme } from '../theme/ThemeContext';
 import { useReveal } from '../hooks/useReveal';
 import { Repeat, Sparkles } from 'lucide-react';
 
 export const GrowthLoop: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
   const { ref, isVisible } = useReveal();
   const [activeNode, setActiveNode] = useState<number | null>(null);
 
@@ -23,24 +26,28 @@ export const GrowthLoop: React.FC = () => {
   ];
 
   return (
-    <section ref={ref} id="loop" className={`py-24 bg-[#060709] border-t border-zinc-900 relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+    <section ref={ref} id="loop" className={`py-24 border-t transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${isLight ? 'bg-white border-zinc-200' : 'bg-[#060709] border-zinc-900'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="text-xs font-mono text-cyan-400 uppercase tracking-widest">
             // END-TO-END BUSINESS LOOP
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${isLight ? 'text-zinc-900' : 'text-white'}`}>
             {t.loop.title}
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base">
+          <p className={`text-sm sm:text-base ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>
             {t.loop.desc}
           </p>
         </div>
 
-        <div className="relative rounded-2xl bg-black/90 border border-zinc-800 p-6 lg:p-12 overflow-hidden shadow-2xl">
+        <div className={`relative rounded-2xl border p-6 lg:p-12 overflow-hidden shadow-2xl ${isLight ? 'bg-zinc-50 border-zinc-200' : 'bg-black/90 border-zinc-800'}`}>
           <div className="flex flex-col items-center justify-center py-6 mb-8 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 font-mono text-xs">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-spin" />
+            <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-mono text-xs ${
+              isLight
+                ? 'bg-cyan-50 border border-cyan-200 text-cyan-700'
+                : 'bg-cyan-950/80 border border-cyan-500/40 text-cyan-300'
+            }`}>
+              <Sparkles className={`w-3.5 h-3.5 ${isLight ? 'text-cyan-600' : 'text-cyan-400 animate-spin'}`} />
               {t.loop.engine}
             </div>
           </div>
@@ -53,21 +60,29 @@ export const GrowthLoop: React.FC = () => {
                 onMouseLeave={() => setActiveNode(null)}
                 className={`p-4 rounded-lg border transition-all cursor-pointer ${
                   activeNode === idx
-                    ? 'bg-cyan-950/40 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]'
+                    ? isLight
+                      ? 'bg-cyan-50 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]'
+                      : 'bg-cyan-950/40 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]'
+                    : isLight
+                    ? 'bg-zinc-100 border-zinc-200 hover:border-zinc-300'
                     : 'bg-zinc-900/60 border-zinc-800 hover:border-zinc-700'
                 }`}
               >
-                <div className="font-mono text-[11px] text-cyan-400 font-semibold">{step.num}</div>
-                <div className="font-bold text-sm text-zinc-100 mt-1">{step.title}</div>
-                <div className="text-[10px] font-mono text-zinc-500">{step.en}</div>
-                <p className="text-[11px] text-zinc-400 mt-2 line-clamp-2">{step.desc}</p>
+                <div className={`font-mono text-[11px] font-semibold ${isLight ? 'text-cyan-600' : 'text-cyan-400'}`}>{step.num}</div>
+                <div className={`font-bold text-sm mt-1 ${isLight ? 'text-zinc-900' : 'text-zinc-100'}`}>{step.title}</div>
+                <div className={`text-[10px] font-mono ${isLight ? 'text-zinc-500' : 'text-zinc-500'}`}>{step.en}</div>
+                <p className={`text-[11px] mt-2 line-clamp-2 ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>{step.desc}</p>
               </div>
             ))}
           </div>
 
           <div className="flex items-center justify-center my-4">
-            <div className="flex items-center gap-2 text-xs font-mono text-cyan-400/80 bg-zinc-900/80 px-4 py-1.5 rounded-full border border-zinc-800">
-              <Repeat className="w-3.5 h-3.5 animate-spin" />
+            <div className={`flex items-center gap-2 text-xs font-mono px-4 py-1.5 rounded-full border ${
+              isLight
+                ? 'text-cyan-700 bg-cyan-50 border-cyan-200'
+                : 'text-cyan-400/80 bg-zinc-900/80 border-zinc-800'
+            }`}>
+              <Repeat className={`w-3.5 h-3.5 ${isLight ? '' : 'animate-spin'}`} />
               <span>{t.loop.pipeline}</span>
             </div>
           </div>

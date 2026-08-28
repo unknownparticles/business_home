@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from '../i18n';
+import { useTheme } from '../theme/ThemeContext';
 import { GlowCard } from './ui/GlowCard';
 import { Badge } from './ui/Badge';
 import { useReveal } from '../hooks/useReveal';
@@ -48,6 +49,8 @@ const AnimatedCounter: React.FC<{ value: string }> = ({ value }) => {
 
 export const ResultsKpi: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
   const { ref, isVisible } = useReveal();
   const kpis = [
     { label: t.results.labels.leads, value: '+1,284', desc: t.results.descs.leads },
@@ -59,14 +62,14 @@ export const ResultsKpi: React.FC = () => {
   ];
 
   return (
-    <section ref={ref} id="results" className={`py-24 bg-black border-t border-zinc-900 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+    <section ref={ref} id="results" className={`py-24 border-t transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${isLight ? 'bg-white border-zinc-200' : 'bg-black border-zinc-900'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div>
             <div className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-3">
               // BUSINESS OUTCOMES
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${isLight ? 'text-zinc-900' : 'text-white'}`}>
               {t.results.title}
             </h2>
           </div>
@@ -78,11 +81,11 @@ export const ResultsKpi: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {kpis.map((kpi, idx) => (
             <GlowCard key={idx} className={`p-5 text-center glow-card-hover transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: `${idx * 100}ms` }}>
-              <div className="text-xs font-mono text-zinc-500 uppercase">{kpi.label}</div>
-              <div className="text-2xl sm:text-3xl font-bold font-mono text-cyan-400 my-2">
+              <div className={`text-xs font-mono uppercase ${isLight ? 'text-zinc-500' : 'text-zinc-500'}`}>{kpi.label}</div>
+              <div className={`text-2xl sm:text-3xl font-bold font-mono my-2 ${isLight ? 'text-cyan-600' : 'text-cyan-400'}`}>
                 <AnimatedCounter value={kpi.value} />
               </div>
-              <div className="text-[11px] text-zinc-400">{kpi.desc}</div>
+              <div className={`text-[11px] ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>{kpi.desc}</div>
             </GlowCard>
           ))}
         </div>

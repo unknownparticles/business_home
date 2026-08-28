@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../i18n';
+import { useTheme } from '../theme/ThemeContext';
 import { PAIN_POINTS } from '../data/mockData';
 import { GlowCard } from './ui/GlowCard';
 import { Unplug } from 'lucide-react';
@@ -7,19 +8,21 @@ import { useReveal } from '../hooks/useReveal';
 
 export const PainPoints: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
   const { ref, isVisible } = useReveal();
 
   return (
-    <section ref={ref} className={`py-24 bg-[#050608] border-y border-zinc-900 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+    <section ref={ref} className={`py-24 border-y transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${isLight ? 'bg-zinc-50 border-zinc-200' : 'bg-[#050608] border-zinc-900'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mb-16">
           <div className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-3">
             // THE FRAGMENTATION PROBLEM
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
+          <h2 className={`text-3xl sm:text-4xl font-bold tracking-tight leading-tight ${isLight ? 'text-zinc-900' : 'text-white'}`}>
             {t.painPoints.title}
           </h2>
-          <p className="text-zinc-400 mt-4 text-base sm:text-lg">
+          <p className={`mt-4 text-base sm:text-lg ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>
             {t.painPoints.desc}
           </p>
         </div>
@@ -35,24 +38,24 @@ export const PainPoints: React.FC = () => {
                   {t.painPoints.disconnected}
                 </span>
               </div>
-              <h3 className="text-lg font-semibold text-zinc-100 mb-2">{item.sub}</h3>
-              <p className="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
+              <h3 className={`text-lg font-semibold mb-2 ${isLight ? 'text-zinc-900' : 'text-zinc-100'}`}>{item.sub}</h3>
+              <p className={`text-sm leading-relaxed ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>{item.desc}</p>
             </GlowCard>
           ))}
         </div>
 
-        <div className="mt-12 p-6 rounded-xl bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800/80 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className={`mt-12 p-6 rounded-xl border flex flex-col md:flex-row items-center justify-between gap-4 ${isLight ? 'bg-zinc-100 border-zinc-200' : 'bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-zinc-800/80'}`}>
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-lg bg-cyan-950 border border-cyan-500/30 text-cyan-400">
               <Unplug className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-white font-medium text-sm">{t.painPoints.loss}</div>
-              <div className="text-zinc-400 text-xs">{t.painPoints.lossDesc}</div>
+              <div className={`font-medium text-sm ${isLight ? 'text-zinc-900' : 'text-white'}`}>{t.painPoints.loss}</div>
+              <div className={`text-xs ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>{t.painPoints.lossDesc}</div>
             </div>
           </div>
           <div className="text-right">
-            <span className="text-sm font-semibold text-cyan-400 font-mono">
+            <span className={`text-sm font-semibold font-mono ${isLight ? 'text-cyan-600' : 'text-cyan-400'}`}>
               {t.painPoints.connect}
             </span>
           </div>
