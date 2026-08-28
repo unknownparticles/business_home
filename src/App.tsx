@@ -10,12 +10,13 @@ import { ResultsKpi } from './components/ResultsKpi';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { I18nProvider } from './i18n';
+import { ThemeProvider } from './theme/ThemeContext';
 import { MouseBackground } from './components/MouseBackground';
 
 export const App: React.FC = () => {
   return (
     <I18nProvider>
-      <div className="min-h-screen bg-black text-zinc-100 font-sans selection:bg-cyan-400 selection:text-black relative">
+      <ThemeProvider>
         <MouseBackground />
         <div className="relative z-10">
           <Navbar />
@@ -31,7 +32,7 @@ export const App: React.FC = () => {
           </main>
           <Footer />
         </div>
-      </div>
+      </ThemeProvider>
     </I18nProvider>
   );
 };
