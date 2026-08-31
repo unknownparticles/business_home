@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Theme = 'dark' | 'light';
+export type Theme = 'dark' | 'light' | 'auto';
 
 interface ThemeContextType {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
+  effectiveTheme: 'dark' | 'light';
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -13,9 +14,18 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme') as Theme | null;
-      if (saved === 'light' || saved === 'dark') return saved;
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return prefersDark ? 'dark' : 'light';
+      if (saved === 'light' || saved === 'dark' || saved === 'auto') return saved;
+      return 'auto';
+    }
+    return 'auto';
+  });
+
+  const [effectiveTheme, setEffectiveTheme] = useState<'dark' | 'light'>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme') as Theme | null;
+      if (saved === 'light') return 'light';
+      if (saved === 'dark') return 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     return 'dark';
   });
@@ -26,11 +36,11 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   useEffect(() => {
     if (typeof document === 'undefined') return;
-    document.body.setAttribute('data-theme', theme);
-    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', effectiveTheme);
+    document.documentElement.setAttribute('data-theme', effectiveTheme);
 
     let styleEl: HTMLStyleElement | null = null;
-    if (theme === 'light') {
+    if (effectiveTheme === 'light') {
       styleEl = document.createElement('style');
       styleEl.setAttribute('data-theme-override', 'light');
       styleEl.textContent = `
@@ -52,25 +62,35 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         styleEl.parentNode.removeChild(styleEl);
       }
     };
-  }, [theme]);
+  }, [effectiveTheme]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => {
-      setTheme(e.matches ? 'dark' : 'light');
+      const saved = localStorage.getItem('theme') as Theme | null;
+      if (saved === 'auto' || !saved) {
+        const next = e.matches ? 'dark' : 'light';
+        setEffectiveTheme(next);
+      }
     };
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  const applyTheme = (next: Theme) => {
+    setTheme(next);
+    if (next === 'auto') {
+      const prefersDark = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setEffectiveTheme(prefersDark ? 'dark' : 'light');
+    } else {
+      setEffectiveTheme(next);
+    }
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div data-theme={theme} className="min-h-screen font-sans antialiased selection:bg-cyan-500 selection:text-black">
+    <ThemeContext.Provider value={{ theme, setTheme: applyTheme, effectiveTheme }}>
+      <div data-theme={effectiveTheme} className="min-h-screen font-sans antialiased selection:bg-cyan-500 selection:text-black">
         {children}
       </div>
     </ThemeContext.Provider>

@@ -13,7 +13,12 @@
       (function() {
         try {
           var theme = localStorage.getItem('theme');
-          var applyTheme = theme === 'light' || theme === 'dark' ? theme : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          var applyTheme = 'dark';
+          if (theme === 'light') {
+            applyTheme = 'light';
+          } else if (theme === 'auto' || !theme) {
+            applyTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          }
           document.body.setAttribute('data-theme', applyTheme);
           document.documentElement.setAttribute('data-theme', applyTheme);
         } catch (e) {

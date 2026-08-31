@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../i18n';
 import { useTheme } from '../theme/ThemeContext';
-import { ArrowUpRight, ExternalLink, Languages, Sun, Moon } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, Languages, Sun, Moon, Monitor } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { t, locale, setLocale } = useTranslation();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme, effectiveTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
     }
   };
 
-  const isLight = theme === 'light';
+  const isLight = effectiveTheme === 'light';
 
   return (
     <header
@@ -74,11 +74,14 @@ export const Navbar: React.FC = () => {
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
           <button
-            onClick={toggleTheme}
+            onClick={() => {
+              const next = theme === 'light' ? 'dark' : theme === 'dark' ? 'auto' : 'light';
+              setTheme(next);
+            }}
             className={`hidden sm:inline-flex items-center gap-1.5 text-xs font-mono px-3 py-2 transition-colors ${isLight ? 'text-zinc-600 hover:text-zinc-900' : 'text-zinc-300 hover:text-white'}`}
-            title={t.nav.theme}
+            title={theme === 'auto' ? '跟随系统' : theme === 'light' ? '亮色模式' : '暗色模式'}
           >
-            {theme === 'dark' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+            {theme === 'auto' ? <Monitor className="w-3.5 h-3.5" /> : theme === 'light' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
           </button>
           <button
             onClick={() => setLocale(locale === 'zh' ? 'en' : 'zh')}
